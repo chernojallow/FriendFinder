@@ -6,6 +6,7 @@
     <title>Survey Questions</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
 <body>
@@ -19,51 +20,129 @@
 
 
                 <form role="form">
+                    <div class="form-group">
+                        <label for="name-required"><strong>Name(Required)</strong></label>
+                        <input type="text" class="form-control" id="name-required">
 
-                    <label for="name-required"><strong>Name(Required)</strong></label>
-                    <input type="text" class="form-control" id="name-required">
+                        <label for="photo-required"><strong>Link To Photo Image(Required)</strong></label>
+                        <input type="text" class="form-control" id="photo-required">
+                        <hr>
 
-                    <label for="photo-required"><strong>Link To Photo Image(Required)</strong></label>
-                    <input type="text" class="form-control" id="photo-required">
-                    <hr>
+                        <div class="form group">
+                            <h3><strong> Question 1</strong></h3>
+                            <label> <strong>Your mind is always buzzing with with unexplored ideas and plans.</strong></label>
+                            <input type="number" class="form-control" id="question1" placeholder="Select an Option">
+                        </div>
+
+                        <div class="form group">
+                            <h3><strong> Question 2</strong></h3>
+                            <label> <strong>Your mind is always buzzing with with unexplored ideas and plans.</strong></label>
+                            <input type="number" class="form-control" id="question2" placeholder="Select an Option">
+                            <br>
+
+                            <div class="form group">
+                                <h3><strong> Question 3</strong></h3>
+                                <label> <strong>You find it easy to stay relaxed and focused even when there is some pressure.</strong></label>
+                                <input type="number" class="form-control" id="question3" placeholder="Select an Option">
+                                <br>
+                            </div>
+
+                            <div class="form group">
+                                <h3><strong> Question 4</strong></h3>
+                                <label> <strong>You rarely do something just out of sheer pressure.</strong></label>
+                                <input type="number" class="form-control" id="question4" placeholder="Select an Option">
+                                <br>
+                            </div>
+
+
+                            <div class="form group">
+                                <h3><strong> Question 5</strong></h3>
+                                <label> <strong>People can rarely upset you.</strong></label>
+                                <input type="number" class="form-control" id="question5" placeholder="Select an Option">
+                                <br>
+                            </div>
+
+                            <div class="form group">
+                                <h3><strong> Question 6</strong></h3>
+                                <label> <strong>It is often difficult for you to relate to other people's feelings.</strong></label>
+                                <input type="number" class="form-control" id="question6" placeholder="Select an Option">
+                                <br>
+                            </div>
+
+
+                            <div class="form group">
+                                <h3><strong> Question 7</strong></h3>
+                                <label> <strong>In a discussion, truth should be more important than people's sensitivities
+                                        .</strong></label>
+                                <input type="number" class="form-control" id="question7" placeholder="Select an Option">
+                                <br>
+                            </div>
+
+
+                            <div class="form group">
+                                <h3><strong> Question 8</strong></h3>
+                                <label> <strong>You rarely get carried away by fantasies and ideas.</strong></label>
+                                <input type="number" class="form-control" id="question8" placeholder="Select an Option">
+                                <br>
+                            </div>
+
+                            <div class="form group">
+                                <h3><strong> Question 9</strong></h3>
+                                <label> <strong>You think that everyone view should be respected regardless of whether they
+                                        are supported by facts or not.</strong></label>
+                                <input type="number" class="form-control" id="question9" placeholder="Select an Option">
+                                <br>
+                            </div>
+
+                            <div class="form group">
+                                <h3><strong> Question 10</strong></h3>
+                                <label> <strong>You feel more energetic after spending time with a group of people.</strong></label>
+                                <input type="number" class="form-control" id="question10" placeholder="Select an Option">
+                                <br>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary submit">Submit</button>
+                            <hr>
                 </form>
+
+                <footer class="footer"></footer>
+                <div class="container">
+                    <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/chernojallow/FriendFinder">
+                            GitHub Repo </a></p>
+                </div>
+                </div>
+                </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <h3><strong> Question 1</strong></h3>
-                <label> <strong>Your mind is always buzzing with with unexplored ideas and plans.</strong></label>
-            </div>
-
-            <form>
-                <div class="col-lg-12">
-                    <input type="number" class="form-control" id="question1" placeholder="Select an Option">
-                </div>
-                <form>
-                </div>
-
-
-
-                <div class="row">
-                <div class="col-lg-12">
-                    <h3><strong> Question 1</strong></h3>
-                    <label> <strong>Your mind is always buzzing with with unexplored ideas and plans.</strong></label>
-                </div>
-            </div>
-                <form>
-                    <div class ="row">
-                    <div class="col-lg-12">
-                        <input type="number" class="form-control" id="question1" placeholder="Select an Option">
-                    </div>
-                    <form>
-                    </div>
-                
-    
-
-
-
-
     </div>
+
 </body>
+
 </html>
+
+
+<script type="text/javascript"> 
+
+    $(".submit").on("click", function (event) {
+        event.preventDefault();
+
+        // Here we grap the survey elements
+        var newSurvey = {
+            question1: $("question1").val().trim(),
+            question2: $("question2").val().trim(),
+            question3: $("question3").val().trim(),
+            question4: $("question4").val().trim(),
+            question5: $("question5").val().trim(),
+            question6: $("question6").val().trim(),
+            question7: $("question7").val().trim(),
+            question8: $("question8").val().trim(),
+            question9: $("question9").val().trim(),
+            question10: $("question10").val().trim()
+
+        };
+
+        console.log(newSurvey);
+
+    });
+
+</script>
