@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -18,14 +19,13 @@
             <div class="col-lg-12">
                 <h3> <strong>About You</strong></h3>
 
-
                 <form role="form">
                     <div class="form-group">
                         <label for="name-required"><strong>Name(Required)</strong></label>
-                        <input type="text" class="form-control" id="name-required">
+                        <input type="text" class="form-control" id="name">
 
                         <label for="photo-required"><strong>Link To Photo Image(Required)</strong></label>
-                        <input type="text" class="form-control" id="photo-required">
+                        <input type="text" class="form-control" id="photo">
                         <hr>
 
                         <div class="form group">
@@ -54,7 +54,6 @@
                                 <br>
                             </div>
 
-
                             <div class="form group">
                                 <h3><strong> Question 5</strong></h3>
                                 <label> <strong>People can rarely upset you.</strong></label>
@@ -69,15 +68,14 @@
                                 <br>
                             </div>
 
-
                             <div class="form group">
                                 <h3><strong> Question 7</strong></h3>
                                 <label> <strong>In a discussion, truth should be more important than people's sensitivities
-                                        .</strong></label>
+                                        .
+                                    </strong></label>
                                 <input type="number" class="form-control" id="question7" placeholder="Select an Option">
                                 <br>
                             </div>
-
 
                             <div class="form group">
                                 <h3><strong> Question 8</strong></h3>
@@ -117,7 +115,6 @@
     </div>
 
 </body>
-
 </html>
 
 
@@ -128,21 +125,55 @@
 
         // Here we grap the survey elements
         var newSurvey = {
-            question1: $("question1").val().trim(),
-            question2: $("question2").val().trim(),
-            question3: $("question3").val().trim(),
-            question4: $("question4").val().trim(),
-            question5: $("question5").val().trim(),
-            question6: $("question6").val().trim(),
-            question7: $("question7").val().trim(),
-            question8: $("question8").val().trim(),
-            question9: $("question9").val().trim(),
-            question10: $("question10").val().trim()
+            "name": $("#name").val().trim(),
+            "photo": $("#photo").val().trim(),
 
-        };
+             "scores": 
+             [$("#question1").val().trim(),
+             $("#question2").val().trim(),
+             $("#question3").val().trim(),
+             $("#question4").val().trim(),
+             $("#question5").val().trim(),
+             $("#question6").val().trim(),
+             $("#question7").val().trim(),
+             $("#question8").val().trim(),
+             $("#question9").val().trim(),
+             $("#question10").val().trim()
+            ]
+       };
+    
+         //console.log(newSurvey);
+      
+        $.post("/api/friends", newSurvey,
+            function (data) {
 
-        console.log(newSurvey);
+        
+                 if (data) {
 
+                     alert("You have a merge!");
+              //      console.log("==============")
+
+                   console.log(newSurvey);
+                     console.log(data);
+              }
+              else {
+                 alert("Sorry there is no merge");
+               }
+            });
     });
 
+   function runSurvey (){
+    var currentURL = window.location.origin;
+
+       $.ajax({ url: currentURL + "/api/friends", method: "GET" })
+        .then(function(friendData) {
+
+            console.log("URL: " + currentURL + "/api/friends");
+            console.log(friendData);
+
+        });
+       
+   }
+
+  runSurvey();
 </script>
