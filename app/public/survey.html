@@ -159,7 +159,7 @@
                 <div class="form group">
                     <h3><strong> Question 10</strong></h3>
                     <p> <strong>You feel more energetic after spending time with a group of people.</strong></p>
-                    <select data-placeholder="" class="browser-default" id="question1">
+                    <select data-placeholder="" class="browser-default" id="question10">
                         <option value="">Choose an option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -194,10 +194,10 @@
 
         // Here we grap the survey elements
         var newSurvey = {
-            "name": $("#name").val().trim(),
-            "photo": $("#photo").val().trim(),
+            name : $("#name").val().trim(),
+            photo: $("#photo").val().trim(),
 
-            "scores":
+            scores:
                 [$("#question1").val().trim(),
                 $("#question2").val().trim(),
                 $("#question3").val().trim(),
@@ -213,7 +213,9 @@
 
         //console.log(newSurvey);
 
-        $.post("/api/friends", newSurvey,
+        var currentURL = window.location.origin;
+
+        $.post( currentURL + "/api/friends", newSurvey,
             function (data) {
 
 
@@ -228,21 +230,20 @@
                 else {
                     alert("Sorry there is no merge");
                 }
+                
+                // clear the survey form after submitting 
+                $("#question1").val("");
+                $("#question2").val("");
+                $("#question3").val("");
+                $("#question4").val("");
+                $("#question5").val("");
+                $("#question6").val("");
+                $("#question7").val("");
+                $("#question8").val("");
+                $("#question9").val("");
+                $("#question10").val("");
+
             });
     });
 
-    function runSurvey() {
-        var currentURL = window.location.origin;
-
-        $.ajax({ url: currentURL + "/api/friends", method: "GET" })
-            .then(function (friendData) {
-
-                console.log("URL: " + currentURL + "/api/friends");
-                console.log(friendData);
-
-            });
-
-    }
-
-    runSurvey();
 </script>

@@ -8,33 +8,52 @@ module.exports = function(app){
     });
 
     app.post("/api/friends", function(req, res){
-       
+
+        var arrayScore =[];
+        var count = 0;
+        var match =0;
         var input = req.body;
-      //  console.log('input',  input);
+
+
+      ////  console.log('input',  input);
+
+
         console.log("=============================");
         var userInput = input.scores;
-       // console.log("userresponses",  userResponses);
+       ////  console.log("userresponses",  userResponses);
 
-       // Loop through all friendData
-       for (var i = 0; i < friendData.length; i++){
+       //// Loop through all friendData
+      for (var i = 0; i < friendData.length; i++){
          
         var difference = 0;
 
-        //Compare difference for each question
+        ////Compare difference for each question
        for( var j = 0; i < userInput.length; j++){
-           difference += Math.abs(friendData[i].scores[j] - userInput[j]);
+       difference += (Math.abs(parseInt(friendData[i].scores[j]) - parseInt(userInput[j])));
           //console.log("userinput", userInput[j]);
-       }
-       console.log("difference" + difference);
-    }
-     
-      if (friendData.length < 50) {
-             friendData.push(input);
-          res.json(true);
-       } 
-       else{
-           console.log("Is full");
       }
+
+       arrayScore.push(difference);
+       //console.log("difference" + difference);
+     }
+
+    // find best match 
+    for(var i =0; i< arrayScore.length; i++){
+         if(arrayScore[i] <= arrayScore[match]) {
+         match = i;
+        }
+    }
+
+      // return match 
+     res.json(friendData[bestMatch]);
+     
+     // if (friendData.length < 50) {
+           friendData.push(input);
+           res.json(true);
+     //  } 
+     //  else{
+       //    console.log("Is full");
+    //  }
 
     });
 };
