@@ -32,7 +32,7 @@
                 <div class="form group">
                     <h3><strong> Question 1</strong></h3>
                     <p><strong>Your mind is always buzzing with with unexplored ideas and plans.</strong></p>
-                    <select data-placeholder="" class="browser-default" id="question1">
+                    <select data-placeholder="" class="validate" id="question1">
                         <option value="">Choose an option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -46,7 +46,7 @@
                 <div class="form group">
                     <h3><strong> Question 2</strong></h3>
                     <p><strong>Your mind is always buzzing with with unexplored ideas and plans.</strong></p>
-                    <select data-placeholder="" class="browser-default" id="question2">
+                    <select data-placeholder="" class="validate" id="question2">
                         <option value="">Choose an option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -61,7 +61,7 @@
                 <div class="form group">
                     <h3><strong> Question 3</strong></h3>
                     <p><strong>You find it easy to stay relaxed and focused even when there is some pressure.</strong></p>
-                    <select data-placeholder="" class="browser-default" id="question3">
+                    <select data-placeholder="" class="validate" id="question3">
                         <option value="">Choose an option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -75,7 +75,7 @@
                 <div class="form group">
                     <h3><strong> Question 4</strong></h3>
                     <p><strong>You rarely do something just out of sheer pressure.</strong></p>
-                    <select data-placeholder="" class="browser-default" id="question4">
+                    <select data-placeholder="" class="validate" id="question4">
                         <option value="">Choose an option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -89,7 +89,7 @@
                 <div class="form group">
                     <h3><strong> Question 5</strong></h3>
                     <p><strong>People can rarely upset you.</strong></p>
-                    <select data-placeholder="" class="browser-default" id="question5">
+                    <select data-placeholder="" class="validate" id="question5">
                         <option value="">Choose an option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -102,7 +102,7 @@
                 <div class="form group">
                     <h3><strong> Question 6</strong></h3>
                     <p><strong>It is often difficult for you to relate to other people's feelings.</strong></p>
-                    <select data-placeholder="" class="browser-default" id="question6">
+                    <select data-placeholder="" class="validate" id="question6">
                         <option value="">Choose an option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -116,7 +116,7 @@
                 <div class="form group">
                     <h3><strong> Question 7</strong></h3>
                     <p><strong>In a discussion, truth should be more important than people's sensitivities.</strong></p>
-                    <select data-placeholder="" class="browser-default" id="question7">
+                    <select data-placeholder="" class="validate" id="question7">
                         <option value="">Choose an option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -130,7 +130,7 @@
                 <div class="form group">
                     <h3><strong> Question 8</strong></h3>
                     <p><strong>You rarely get carried away by fantasies and ideas.</strong></p>
-                    <select data-placeholder="" class="browser-default" id="question8">
+                    <select data-placeholder="" class="validate" id="question8">
                         <option value="">Choose an option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -145,7 +145,7 @@
                     <h3><strong> Question 9</strong></h3>
                     <p> <strong>You think that everyone view should be respected regardless of whether they are supported
                             by facts or not. </strong></p>
-                    <select data-placeholder="" class="browser-default" id="question9">
+                    <select data-placeholder="" class="validate" id="question9">
                         <option value="">Choose an option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -159,7 +159,7 @@
                 <div class="form group">
                     <h3><strong> Question 10</strong></h3>
                     <p> <strong>You feel more energetic after spending time with a group of people.</strong></p>
-                    <select data-placeholder="" class="browser-default" id="question10">
+                    <select data-placeholder="" class="validate" id="question10">
                         <option value="">Choose an option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -170,80 +170,88 @@
                 </div>
                 <br>
 
-                <button type="submit" class="btn btn-primary submit">Submit</button>
-                <hr>
+                <div class="text-center">
+                    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                    <hr>
+                </div>
 
-                <footer class="footer"></footer>
-                <div class="container">
-                    <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/chernojallow/FriendFinder">
-                            GitHub Repo </a></p>
+                <!-- Modal after survey completion -->
+                <div id="bestFriend" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title">Your Best Friend Match
+                                    </h1>
+                            </div>
+                            <div class="modal-body">
+                                <h2 id="bestMatch"></h2>
+                                <img id="matchPhoto" src="#">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 </div>
-            </div>
-        </div>
+
+                <footer>
+                    <div class="container">
+                        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/chernojallow/FriendFinder">
+                                GitHub Repo </a></p>
+                    </div>
+                </footer>
 
 </body>
 
 </html>
 
-
-<script type="text/javascript"> 
-
-    $(".submit").on("click", function (event) {
+<script type="text/javascript">
+    $("#submit").on("click", function (event) {
         event.preventDefault();
+        // Form validation
+        var validationForm = function () {
 
-        // Here we grap the survey elements
-        var newSurvey = {
-            name : $("#name").val().trim(),
-            photo: $("#photo").val().trim(),
+            var valid = true;
 
-            scores:
-                [$("#question1").val().trim(),
-                $("#question2").val().trim(),
-                $("#question3").val().trim(),
-                $("#question4").val().trim(),
-                $("#question5").val().trim(),
-                $("#question6").val().trim(),
-                $("#question7").val().trim(),
-                $("#question8").val().trim(),
-                $("#question9").val().trim(),
-                $("#question10").val().trim()
-                ]
-        };
-
-        //console.log(newSurvey);
-
-        var currentURL = window.location.origin;
-
-        $.post( currentURL + "/api/friends", newSurvey,
-            function (data) {
-
-
-                if (data) {
-
-                    alert("You have a merge!");
-                    //      console.log("==============")
-
-                    console.log(newSurvey);
-                    console.log(data);
-                }
-                else {
-                    alert("Sorry there is no merge");
-                }
-                
-                // clear the survey form after submitting 
-                $("#question1").val("");
-                $("#question2").val("");
-                $("#question3").val("");
-                $("#question4").val("");
-                $("#question5").val("");
-                $("#question6").val("");
-                $("#question7").val("");
-                $("#question8").val("");
-                $("#question9").val("");
-                $("#question10").val("");
+            $('.form-control').each(function () {
+                if ($(this).val() === '')
+                    valid = false;
 
             });
-    });
 
+            $('.validate').each(function () {
+                if ($(this).val() === "")
+                    valid = false;
+
+            });
+            return valid;
+        }
+
+        if (validationForm() === true) {
+            var newSurvey = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                scores: [
+                    $("#question1").val(),
+                    $("#question2").val(),
+                    $("#question3").val(),
+                    $("#question4").val(),
+                    $("#question5").val(),
+                    $("#question6").val(),
+                    $("#question7").val(),
+                    $("#question8").val(),
+                    $("#question9").val(),
+                    $("#question10").val()
+                ]
+            };
+            var currentURL = window.location.origin;
+            // Ajax call for receiving response after POST req
+            $.post(currentURL + "/api/friends", newSurvey, function (data) {
+                $("#bestMatch").text(data.name);
+                $("#matchPhoto").attr("src", data.photo);
+                $("#bestFriend").modal("toggle");
+            });
+        } else {
+            // Alert if user didn't fill form completely 
+            alert("Please fill the survey entirely!");
+        }
+    });
 </script>
