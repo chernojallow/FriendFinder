@@ -175,7 +175,6 @@
                     <hr>
                 </div>
 
-                <!-- Modal after survey completion -->
                 <div id="bestFriend" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -249,6 +248,21 @@
                 $("#matchPhoto").attr("src", data.photo);
                 $("#bestFriend").modal("toggle");
             });
+
+            // clear form after submitting
+            $("#name").val(""),
+                $("#photo").val(""),
+                $("#question1").val(""),
+                $("#question2").val(""),
+                $("#question3").val(""),
+                $("#question4").val(""),
+                $("#question5").val(""),
+                $("#question6").val(""),
+                $("#question7").val(""),
+                $("#question8").val(""),
+                $("#question9").val(""),
+                $("#question10").val()
+
         } else {
             // Alert if user didn't fill form completely 
             alert("Please fill the survey entirely!");

@@ -2,7 +2,6 @@
 var path = require ("path");
 
 // Routing
-
 module.exports = function(app) {
     //HTML GET request 
     app.get("/survey", function(req, res){
