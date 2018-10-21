@@ -2,7 +2,7 @@
 
 This application will take in results from your users' surveys, then compare their answers with those from other users. The app will then display the name and picture of the user with best overall match.
 
-# Technologist used:
+# Technologies used:
 The application uses Express to handle routing
 
 The server.js file uses the npm packages: express, body-parser, path.
