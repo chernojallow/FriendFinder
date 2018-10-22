@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Friend Finder</title>
+    <!--Latest compiled and minified CSS and JS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -207,23 +208,19 @@
         event.preventDefault();
         // Form validation
         var validationForm = function () {
-
             var valid = true;
-
             $('.form-control').each(function () {
                 if ($(this).val() === '')
                     valid = false;
-
             });
-
             $('.validate').each(function () {
                 if ($(this).val() === "")
                     valid = false;
-
             });
             return valid;
         }
 
+        // If all required fields are filled
         if (validationForm() === true) {
             var newSurvey = {
                 name: $("#name").val().trim(),
@@ -241,14 +238,15 @@
                     $("#question10").val()
                 ]
             };
+            // Grab the URL of the website
             var currentURL = window.location.origin;
             // Ajax call for receiving response after POST req
             $.post(currentURL + "/api/friends", newSurvey, function (data) {
                 $("#bestMatch").text(data.name);
                 $("#matchPhoto").attr("src", data.photo);
+                //show the model with the best match
                 $("#bestFriend").modal("toggle");
             });
-
             // clear form after submitting
             $("#name").val(""),
                 $("#photo").val(""),
@@ -262,7 +260,6 @@
                 $("#question8").val(""),
                 $("#question9").val(""),
                 $("#question10").val()
-
         } else {
             // Alert if user didn't fill form completely 
             alert("Please fill the survey entirely!");
