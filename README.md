@@ -1,5 +1,7 @@
 # Friend Finder - Node and Express Servers
 
+ Deployed on Heroku : [Clinical App!]( https://cherno-friend-finder.herokuapp.com/) 
+
 This application will take in results from your users' surveys, then compare their answers with those from other users. The app will then display the name and picture of the user with best overall match.
 
 # Technologies used:
